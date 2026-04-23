@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Lookup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Dungeons & Dragons Bestiary</h1>
+
+<div class="search">
+    <label for="monsterId"></label><input type="text" id="monsterId" placeholder="Enter Monster Name"/>
+    <button onclick="loadPokemon()">Search</button>
+</div>
+
+<p id="status"></p>
+
+<div id="monsterBio" class="bio hidden">
+    <img id="monsterImg" src="" alt="Monster Image" />
+    <h2 id="monsterName"></h2>
+    <table>
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <td id="monsterID"></td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td id="pokemonHeight"></td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td id="pokemonWeight"></td>
+        </tr>
+        <tr>
+            <th>Types</th>
+            <td id="pokemonTypes"></td>
+        </tr>
+        <tr>
+            <th>Abilities</th>
+            <td id="pokemonAbilities"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
