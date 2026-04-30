@@ -1,35 +1,27 @@
-async function loadPokemon() {
-    const id = document.getElementById("pokemonId").value;
+async function loadMonster() {
+    const id = document.getElementById("monsterIndex").value;
     const status = document.getElementById("status");
-    const card = document.getElementById("pokemonCard");
+    const card = document.getElementById("monsterBio");
 
-    // Validate input
-    if (!id || id < 1 || id > 151) {
-        status.textContent = "Please enter a valid Pokémon ID between 1 and 151.";
-        card.classList.add("hidden");
-        return;
-    }
 
     try {
+        console.log("monster ID:", id);
         status.textContent = "Loading...";
         card.classList.add("hidden");
 
-        const response = await fetch(`/pokemon/${id}`);
+        const response = await fetch(`/monsters/${id}`);
 
         if (!response.ok) {
-            throw new Error("Pokemon not found!");
+            throw new Error("Monster not found!");
         }
 
-        const pokemon = await response.json();
+        const monster = await response.json();
 
         // Populate the card
-        document.getElementById("pokemonSprite").src = pokemon.sprite;
-        document.getElementById("pokemonName").textContent = pokemon.name;
-        document.getElementById("pokemonID").textContent = pokemon.id;
-        document.getElementById("pokemonHeight").textContent = pokemon.height / 10 + " m";
-        document.getElementById("pokemonWeight").textContent = pokemon.weight / 10 + " kg";
-        document.getElementById("pokemonTypes").textContent = pokemon.types.join(", ");
-        document.getElementById("pokemonAbilities").textContent = pokemon.abilities.join(", ");
+        document.getElementById("monsterName").textContent = monster.name;
+        document.getElementById("monsterSize").textContent = monster.size;
+        document.getElementById("monsterType").textContent = monster.type;
+        document.getElementById("monsterHP").textContent = monster.hit_points;
 
         status.textContent = "";
         card.classList.remove("hidden");
@@ -42,8 +34,8 @@ async function loadPokemon() {
 }
 
 // Allow pressing Enter to search
-document.getElementById("pokemonId").addEventListener("keypress", (e) => {
+document.getElementById("monsterIndex").addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-        loadPokemon();
+        loadMonster();
     }
 });

@@ -4,26 +4,23 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/pokemon/:id", async (req, res) => {
+app.get("/monsters/:index", async (req, res) => {
     try {
-        const { id } = req.params;
-        const response = await fetch(`https://5e-bits.github.io/api/2014/monsters/${id}`, );
+        const { index } = req.params;
+        const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${index}`, );
 
         if (!response.ok) {
-            return res.status(404).json({ error: "Pokemon not found" });
+            return res.status(404).json({ error: "Monster not found" });
         }
 
         const data = await response.json();
 
         // Send back only the data we need
         res.json({
-            id: data.id,
             name: data.name,
-            height: data.height,
-            weight: data.weight,
-            types: data.types.map(t => t.type.name),
-            abilities: data.abilities.map(a => a.ability.name),
-            sprite: data.sprites.front_default
+            size: data.size,
+            type: data.type,
+            hit_points: data.hit_points
         });
 
     } catch (error) {

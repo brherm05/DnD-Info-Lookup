@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Lookup</title>
+    <title>Dungeons & Dragons Monster Lookup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,36 +11,29 @@
 <h1>Dungeons & Dragons Bestiary</h1>
 
 <div class="search">
-    <label for="monsterId"></label><input type="text" id="monsterId" placeholder="Enter Monster Name"/>
-    <button onclick="loadPokemon()">Search</button>
+    <label for="monsterIndex"></label><input type="text" id="monsterIndex" placeholder="Enter Monster Name"/>
+    <button onclick="loadMonster()">Search</button>
 </div>
 
 <p id="status"></p>
-
 <div id="monsterBio" class="bio hidden">
-    <img id="monsterImg" src="" alt="Monster Image" />
-    <h2 id="monsterName"></h2>
     <table>
         <tbody>
         <tr>
             <th>Name</th>
-            <td id="monsterID"></td>
+            <td id="monsterName"></td>
         </tr>
         <tr>
-            <th>Height</th>
-            <td id="pokemonHeight"></td>
+            <th>Size</th>
+            <td id="monsterSize"></td>
         </tr>
         <tr>
-            <th>Weight</th>
-            <td id="pokemonWeight"></td>
+            <th>Type</th>
+            <td id="monsterType"></td>
         </tr>
         <tr>
-            <th>Types</th>
-            <td id="pokemonTypes"></td>
-        </tr>
-        <tr>
-            <th>Abilities</th>
-            <td id="pokemonAbilities"></td>
+            <th>Hit Points</th>
+            <td id="monsterHP"></td>
         </tr>
         </tbody>
     </table>
