@@ -1,11 +1,13 @@
 async function loadMonster() {
-    const id = document.getElementById("monsterIndex").value;
+    const input = document.getElementById("monsterIndex").value;
     const status = document.getElementById("status");
     const card = document.getElementById("monsterBio");
 
 
     try {
-        console.log("monster ID:", id);
+
+        let id = input.replace(/\s/g, "-").toLowerCase();
+
         status.textContent = "Loading...";
         card.classList.add("hidden");
 
@@ -18,10 +20,12 @@ async function loadMonster() {
         const monster = await response.json();
 
         // Populate the card
+        console.log("https://www.dnd5eapi.co" + monster.image);
         document.getElementById("monsterName").textContent = monster.name;
         document.getElementById("monsterSize").textContent = monster.size;
         document.getElementById("monsterType").textContent = monster.type;
         document.getElementById("monsterHP").textContent = monster.hit_points;
+        document.getElementById("monsterBioImg").src = "https://www.dnd5eapi.co" + monster.image;
 
         status.textContent = "";
         card.classList.remove("hidden");

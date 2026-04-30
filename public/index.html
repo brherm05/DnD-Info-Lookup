@@ -11,12 +11,13 @@
 <h1>Dungeons & Dragons Bestiary</h1>
 
 <div class="search">
-    <label for="monsterIndex"></label><input type="text" id="monsterIndex" placeholder="Enter Monster Name"/>
+    <label for="monsterIndex"></label><input type="text" id="monsterIndex" placeholder="Enter Full Monster Name"/>
     <button onclick="loadMonster()">Search</button>
 </div>
 
 <p id="status"></p>
 <div id="monsterBio" class="bio hidden">
+    <img id="monsterBioImg" src="" alt="Monster Image"/>
     <table>
         <tbody>
         <tr>

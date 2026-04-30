@@ -20,7 +20,8 @@ app.get("/monsters/:index", async (req, res) => {
             name: data.name,
             size: data.size,
             type: data.type,
-            hit_points: data.hit_points
+            hit_points: data.hit_points,
+            image: data.image
         });
 
     } catch (error) {

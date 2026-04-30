@@ -6,6 +6,8 @@ body {
     text-align: center;
 }
 
+
+
 h1 {
     color: #e3350d;
 }
@@ -15,6 +17,9 @@ h1 {
     gap: 10px;
     justify-content: center;
     margin-bottom: 20px;
+}
+img {
+    max-width: 100%;
 }
 
 input {
